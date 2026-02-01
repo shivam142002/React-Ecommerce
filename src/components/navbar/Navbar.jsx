@@ -73,7 +73,7 @@ function Navbar() {
                     </Link>
                   </div> : ""}
 
-                  {user?.user?.email === "knupadhyay784@gmail.com" ? <div className="flow-root">
+                  {user?.user?.email === "test@gmail.com" ? <div className="flow-root">
                     <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       admin
                     </Link>
@@ -83,11 +83,13 @@ function Navbar() {
                     <a onClick={logout} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       Logout
                     </a>
-                  </div> : <div className="flow-root">
+                  </div> : "" }
+                  
+                  <div className="flow-root">
                     <Link to={'/signup'}  className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       Signup
                     </Link>
-                  </div>}
+                  </div>
                   <div className="flow-root">
                     <Link to={'/'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer">
                       <img
@@ -156,7 +158,7 @@ function Navbar() {
                       Signup
                     </Link>}
 
-                  {user?.user?.email === 'knupadhyay784@gmail.com' ? 
+                  {user?.user?.email === 'test@gmail.com' ? 
                    <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     Admin
                   </Link> : ""}

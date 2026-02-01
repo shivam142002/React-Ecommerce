@@ -11,7 +11,7 @@ import Order from './pages/order/Order';
 import Cart from './pages/cart/Cart';
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import NoPage from './pages/nopage/NoPage';
-import MyState from './context/data/myState';
+import MyState from './context/data/MyState';
 import Login from './pages/registration/Login';
 import Signup from './pages/registration/Signup';
 import ProductInfo from './pages/productInfo/ProductInfo';
@@ -78,7 +78,7 @@ export const ProtectedRoute = ({children}) => {
 const ProtectedRouteForAdmin = ({children})=> {
   const admin = JSON.parse(localStorage.getItem('user'))
   
-  if(admin.user.email === 'knupadhyay784@gmail.com'){
+  if(admin.user.email === 'test@gmail.com'){
     return children
   }
   else{
