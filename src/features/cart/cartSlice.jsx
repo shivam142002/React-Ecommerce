@@ -43,7 +43,7 @@ const cartSlice = createSlice({
             const { id, quantity } = action.payload;
             const item = state.items.find((item) => item.id === id);
 
-            if (item) {
+            if (item && quantity >= 1) {
                 item.quantity = quantity;
 
                 // Recalculate totals

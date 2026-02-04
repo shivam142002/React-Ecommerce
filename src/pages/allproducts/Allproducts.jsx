@@ -11,7 +11,7 @@ import {
 } from '../../features/products/productsSlice';
 import { addToCart } from '../../features/cart/cartSlice';
 import Loader from '../../components/loader/Loader';
-
+import { fetchProducts } from '../../features/products/productsThunk';
 function AllProducts() {
     const { mode } = useTheme();
     const navigate = useNavigate();
@@ -30,6 +30,7 @@ function AllProducts() {
     };
 
     useEffect(() => {
+        dispatch(fetchProducts())
         window.scrollTo(0, 0);
     }, []);
 

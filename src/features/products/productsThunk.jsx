@@ -14,35 +14,60 @@ import {
 import { fireDB } from '../../services/firebase';
 import { toast } from 'react-toastify';
 
-// Fetch all products
+// // Fetch all products
+// export const fetchProducts = createAsyncThunk(
+//     'products/fetchProducts',
+//     async (_, { rejectWithValue }) => {
+//         try {
+//             const q = query(collection(fireDB, 'products'), orderBy('time'));
+
+//             return new Promise((resolve, reject) => {
+//                 const unsubscribe = onSnapshot(
+//                     q,
+//                     (querySnapshot) => {
+//                         const productArray = [];
+//                         querySnapshot.forEach((doc) => {
+//                             productArray.push({ ...doc.data(), id: doc.id });
+//                         });
+//                         resolve(productArray);
+//                         unsubscribe();
+//                     },
+//                     (error) => {
+//                         reject(error);
+//                     }
+//                 );
+//             });
+//         } catch (error) {
+//             console.error('Error fetching products:', error);
+//             return rejectWithValue(error.message);
+//         }
+//     }
+// );
+
+
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async (_, { rejectWithValue }) => {
         try {
-            const q = query(collection(fireDB, 'products'), orderBy('time'));
+            const q = query(
+                collection(fireDB, 'products'),
+                orderBy('time')
+            );
 
-            return new Promise((resolve, reject) => {
-                const unsubscribe = onSnapshot(
-                    q,
-                    (querySnapshot) => {
-                        const productArray = [];
-                        querySnapshot.forEach((doc) => {
-                            productArray.push({ ...doc.data(), id: doc.id });
-                        });
-                        resolve(productArray);
-                        unsubscribe();
-                    },
-                    (error) => {
-                        reject(error);
-                    }
-                );
-            });
+            const querySnapshot = await getDocs(q);
+            const productArray = querySnapshot.docs.map((doc) => ({
+                ...doc.data(),
+                id: doc.id,
+            }));
+
+            return productArray;
         } catch (error) {
             console.error('Error fetching products:', error);
             return rejectWithValue(error.message);
         }
     }
 );
+
 
 // Add new product
 export const addProduct = createAsyncThunk(
