@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import myContext from '../../context/data/myContext'
-
+//import myContext from '../../context/data/myContext'
+import { useTheme } from '../../context/ThemeContext'
 function Track() {
-    const context = useContext(myContext);
-    const { mode } = context;
+    //  const context = useContext(myContext);
+    const { mode } = useTheme();
     return (
         <div>
             <section>
@@ -43,7 +43,7 @@ function Track() {
                                 </p>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </section>
