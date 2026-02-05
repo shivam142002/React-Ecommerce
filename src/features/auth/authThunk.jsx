@@ -6,7 +6,7 @@ import {
     signOut,
 } from 'firebase/auth';
 import { Timestamp, addDoc, collection } from 'firebase/firestore';
-import { auth, fireDB } from '../../services/firebase';
+import { auth, fireDB } from '../../Services/Firebase';
 import { toast } from 'react-toastify';
 
 // Login user

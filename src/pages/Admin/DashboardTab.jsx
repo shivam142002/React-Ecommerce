@@ -5,12 +5,12 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import { FaUser, FaCartPlus } from 'react-icons/fa';
 import { AiFillShopping } from 'react-icons/ai';
-import { useTheme } from '../../context/ThemeContext';
-import { selectAllProducts } from '../../features/products/productsSlice';
-import { selectAllOrders } from '../../features/orders/ordersSlice';
-import { selectAllUsers } from '../../features/users/usersSlice';
-import { deleteProduct } from '../../features/products/productsThunk';
-import { setCurrentProduct } from '../../features/products/productsSlice';
+import { useTheme } from '../../Context/ThemeContext';
+import { selectAllProducts } from '../../Features/Products/ProductsSlice';
+import { selectAllOrders } from '../../Features/Orders/OrdersSlice';
+import { selectAllUsers } from '../../Features/Users/UsersSlice';
+import { deleteProduct } from '../../Features/Products/ProductsThunk';
+import { setCurrentProduct } from '../../Features/Products/ProductsSlice';
 import 'react-tabs/style/react-tabs.css';
 
 function DashboardTab() {

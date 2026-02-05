@@ -1,6 +1,6 @@
 
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers } from './usersThunk';
+import { fetchUsers } from './UsersThunk';
 
 const initialState = {
     items: [],

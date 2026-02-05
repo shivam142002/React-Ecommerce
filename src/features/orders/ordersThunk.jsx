@@ -1,7 +1,7 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
-import { fireDB } from '../../services/firebase';
+import { fireDB } from '../../Services/Firebase';
 import { toast } from 'react-toastify';
 
 // Fetch all orders

@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { doc, getDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
-import Layout from '../../components/layout/Layout';
-import { useTheme } from '../../context/ThemeContext';
-import { addToCart } from '../../features/cart/cartSlice';
-import { fireDB } from '../../services/firebase';
-import Loader from '../../components/loader/Loader';
+import Layout from '../../Components/Layout/Layout';
+import { useTheme } from '../../Context/ThemeContext';
+import { addToCart } from '../../Features/Cart/CartSlice';
+import { fireDB } from '../../Services/Firebase';
+import Loader from '../../Components/Loader/Loader';
 
 function ProductInfo() {
   const { mode } = useTheme();

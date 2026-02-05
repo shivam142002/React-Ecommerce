@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../Context/ThemeContext';
 import {
     setSearchKey,
     setFilterType,
@@ -11,7 +11,7 @@ import {
     selectFilterType,
     selectFilterPrice,
     selectAllProducts,
-} from '../../features/products/productsSlice';
+} from '../../Features/Products/ProductsSlice';
 
 function Filter() {
     const { mode } = useTheme();

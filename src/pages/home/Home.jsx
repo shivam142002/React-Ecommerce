@@ -37,13 +37,13 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Layout from '../../components/layout/Layout';
+import Layout from '../../Components/Layout/Layout';
 import HeroSection from '../../components/hero/HeroSection';
 import Filter from '../../components/product/Filter';
 import ProductCard from '../../components/product/ProductCard';
 import Track from '../../components/hero/Track';
 import Testimonial from '../../components/hero/Testimonial';
-import { fetchProducts } from '../../features/products/productsThunk';
+import { fetchProducts } from '../../Features/Products/ProductsThunk';
 
 function Home() {
   const dispatch = useDispatch();

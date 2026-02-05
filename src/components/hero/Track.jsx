@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 //import myContext from '../../context/data/myContext'
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../Context/ThemeContext'
 function Track() {
     //  const context = useContext(myContext);
     const { mode } = useTheme();

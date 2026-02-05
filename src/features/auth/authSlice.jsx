@@ -1,6 +1,6 @@
 
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUser, signupUser, logoutUser } from './authThunk';
+import { loginUser, signupUser, logoutUser } from './AuthThunk';
 
 const initialState = {
     user: JSON.parse(localStorage.getItem('user')) || null,

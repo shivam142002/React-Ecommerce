@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from '../../features/products/productsThunk';
-import { selectProductsLoading } from '../../features/products/productsSlice';
-import Loader from '../../components/loader/Loader';
+import { addProduct } from '../../Features/Products/ProductsThunk';
+import { selectProductsLoading } from '../../Features/Products/ProductsSlice';
+import Loader from '../../Components/Loader/Loader';
 
 function AddProduct() {
   const dispatch = useDispatch();

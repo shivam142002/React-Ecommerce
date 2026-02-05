@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../Context/ThemeContext'
 import { Link } from 'react-router-dom';
 
 function Footer() {

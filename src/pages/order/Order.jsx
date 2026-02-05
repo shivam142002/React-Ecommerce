@@ -63,15 +63,15 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Layout from '../../components/layout/Layout';
-import Loader from '../../components/loader/Loader';
-import { useTheme } from '../../context/ThemeContext';
-import { selectUser } from '../../features/auth/authSlice';
+import Layout from '../../Components/Layout/Layout';
+import Loader from '../../Components/Loader/Loader';
+import { useTheme } from '../../Context/ThemeContext';
+import { selectUser } from '../../Features/Auth/AuthSlice';
 import {
   selectAllOrders,
   selectOrdersLoading,
-} from '../../features/orders/ordersSlice';
-import { fetchOrders } from '../../features/orders/ordersThunk';
+} from '../../Features/Orders/OrdersSlice';
+import { fetchOrders } from '../../Features/Orders/OrdersThunk';
 
 function Order() {
   const { mode } = useTheme();

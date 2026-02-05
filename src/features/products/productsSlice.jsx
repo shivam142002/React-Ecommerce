@@ -5,7 +5,7 @@ import {
     addProduct,
     updateProduct,
     deleteProduct,
-} from './productsThunk';
+} from './ProductsThunk';
 
 const initialState = {
     items: [],

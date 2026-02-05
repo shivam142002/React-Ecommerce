@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../features/auth/authThunk';
+import { loginUser } from '../../Features/Auth/AuthThunk';
 import {
     selectAuthLoading,
     selectIsAuthenticated,
-} from '../../features/auth/authSlice';
-import Loader from '../../components/loader/Loader';
+} from '../../Features/Auth/AuthSlice';
+import Loader from '../../Components/Loader/Loader';
 
 function Login() {
     const dispatch = useDispatch();

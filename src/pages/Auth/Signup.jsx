@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { signupUser } from '../../features/auth/authThunk';
-import { selectAuthLoading } from '../../features/auth/authSlice';
+import { signupUser } from '../../Features/Auth/AuthThunk';
+import { selectAuthLoading } from '../../Features/Auth/AuthSlice';
 //import Loader from '../../components/common/Loader';
-import Loader from '../../components/loader/Loader';
+import Loader from '../../Components/Loader/Loader';
 
 function Signup() {
     const dispatch = useDispatch();

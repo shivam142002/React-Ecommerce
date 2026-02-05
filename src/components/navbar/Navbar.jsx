@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useState } from 'react'
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../Context/ThemeContext';
 import { BsFillCloudSunFill } from 'react-icons/bs'
 import { FiSun } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ function Navbar() {
   }
 
   //const cartItems = useSelector((state) => state.cart)
-const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items);
 
   return (
     <div className='bg-white sticky top-0 z-50'>

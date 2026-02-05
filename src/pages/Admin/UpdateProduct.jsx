@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateProduct } from '../../features/products/productsThunk';
+import { updateProduct } from '../../Features/Products/ProductsThunk';
 import {
   selectCurrentProduct,
   selectProductsLoading,
   setCurrentProduct,
-} from '../../features/products/productsSlice';
-import Loader from '../../components/loader/Loader';
+} from '../../Features/Products/ProductsSlice';
+import Loader from '../../Components/Loader/Loader';
 
 function UpdateProduct() {
   const dispatch = useDispatch();

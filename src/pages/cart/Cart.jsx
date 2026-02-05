@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import Layout from '../../components/layout/Layout';
-import Modal from '../../components/Modal/Modal';
-import { useTheme } from '../../context/ThemeContext';
+import Layout from '../../Components/Layout/Layout';
+import Modal from '../../Components/Modal/Modal';
+import { useTheme } from '../../Context/ThemeContext';
 import {
   selectCartItems,
   selectCartTotalAmount,
   deleteFromCart,
   updateQuantity
-} from '../../features/cart/cartSlice';
-import { selectUser } from '../../features/auth/authSlice';
-import { createOrder } from '../../features/orders/ordersThunk';
-import { clearCart } from '../../features/cart/cartSlice';
-import { initiatePayment } from '../../services/payment';
+} from '../../Features/Cart/CartSlice';
+import { selectUser } from '../../Features/Auth/AuthSlice';
+import { createOrder } from '../../Features/Orders/OrdersThunk';
+import { clearCart } from '../../Features/Cart/CartSlice';
+import { initiatePayment } from '../../Services/Payment';
 
 function Cart() {
   const { mode } = useTheme();

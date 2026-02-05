@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaUserTie } from 'react-icons/fa';
-import Layout from '../../components/layout/Layout';
+import Layout from '../../Components/Layout/Layout';
 import DashboardTab from './DashboardTab';
-import { useTheme } from '../../context/ThemeContext';
-import { selectAllProducts } from '../../features/products/productsSlice';
-import { selectAllOrders } from '../../features/orders/ordersSlice';
-import { selectAllUsers } from '../../features/users/usersSlice';
-import { fetchProducts } from '../../features/products/productsThunk';
-import { fetchOrders } from '../../features/orders/ordersThunk';
-import { fetchUsers } from '../../features/users/usersThunk';
+import { useTheme } from '../../Context/ThemeContext';
+import { selectAllProducts } from '../../Features/Products/ProductsSlice';
+import { selectAllOrders } from '../../Features/Orders/OrdersSlice';
+import { selectAllUsers } from '../../Features/Users/UsersSlice';
+import { fetchProducts } from '../../Features/Products/ProductsThunk';
+import { fetchOrders } from '../../Features/Orders/OrdersThunk';
+import { fetchUsers } from '../../Features/Users/UsersThunk';
 
 function Dashboard() {
   const { mode } = useTheme();

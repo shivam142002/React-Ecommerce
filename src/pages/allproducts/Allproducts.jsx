@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import Layout from '../../components/layout/Layout';
-import Filter from '../../components/product/Filter';
-import { useTheme } from '../../context/ThemeContext';
+import Layout from '../../Components/Layout/Layout';
+import Filter from '../../Components/Product/Filter';
+import { useTheme } from '../../Context/ThemeContext';
 import {
     selectFilteredProducts,
     selectProductsLoading,
-} from '../../features/products/productsSlice';
-import { addToCart } from '../../features/cart/cartSlice';
-import Loader from '../../components/loader/Loader';
-import { fetchProducts } from '../../features/products/productsThunk';
+} from '../../Features/Products/ProductsSlice';
+import { addToCart } from '../../Features/Cart/CartSlice';
+import Loader from '../../Components/Loader/Loader';
+import { fetchProducts } from '../../Features/Products/ProductsThunk';
 function AllProducts() {
     const { mode } = useTheme();
     const navigate = useNavigate();
