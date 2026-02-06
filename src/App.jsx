@@ -5,28 +5,28 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Context
-import ThemeProvider from './context/ThemeProvider';
+import ThemeProvider from './Context/ThemeProvider';
 
 // Routes
-import ProtectedRoute from './routes/ProtectedRoute';
-import AdminRoute from './routes/AdminRoute';
+import ProtectedRoute from './Routes/ProtectedRoute';
+import AdminRoute from './Routes/AdminRoute';
 
 // Pages
-import Home from './pages/home/Home';
-import AllProducts from './pages/allProducts/AllProducts';
-import ProductInfo from './pages/ProductInfo/ProductInfo';
-import Cart from './pages/Cart/Cart';
-import Order from './pages/Order/Order';
-import Login from './pages/Auth/Login';
-import Signup from './pages/Auth/Signup';
-import Dashboard from './pages/Admin/Dashboard';
-import AddProduct from './pages/Admin/AddProduct';
-import UpdateProduct from './pages/Admin/UpdateProduct';
+import Home from './Pages/Home/Home';
+import AllProducts from './Pages/AllProducts/AllProducts';
+import ProductInfo from './Pages/ProductInfo/ProductInfo';
+import Cart from './Pages/Cart/Cart';
+import Order from './Pages/Order/Order';
+import Login from './Pages/Auth/Login';
+import Signup from './Pages/Auth/Signup';
+import Dashboard from './Pages/Admin/Dashboard';
+import AddProduct from './Pages/Admin/AddProduct';
+import UpdateProduct from './Pages/Admin/UpdateProduct';
 //import NoPage from './pages/NotFound/NoPage';
 
 // Redux
-import { checkAuthStatus } from './features/auth/authSlice';
-import { loadCartFromStorage } from './features/cart/cartSlice';
+import { checkAuthStatus } from './Features/Auth/AuthSlice';
+import  {loadCartFromStorage}  from './Features/Cart/CartSlice';
 
 function App() {
   const dispatch = useDispatch();
