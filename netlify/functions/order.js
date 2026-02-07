@@ -237,61 +237,140 @@
 
 
 
+// import Razorpay from 'razorpay';
+
+// export default async function handler(req, res) {
+//   console.log('RAZORPAY_KEY:', process.env.RAZORPAY_KEY);
+//   console.log('RAZORPAY_SECRET loaded?', !!process.env.RAZORPAY_SECRET);
+
+//   // Allow only POST requests
+//   if (req.method !== 'POST') {
+//     return res.status(405).json({ message: 'Method not allowed' });
+//   }
+
+//   try {
+//     // 1️⃣ Read environment variables
+//     const key = process.env.RAZORPAY_KEY;
+//     const secret = process.env.RAZORPAY_SECRET;
+
+//     if (!key || !secret) {
+//       console.error('Missing Razorpay env vars');
+//       return res.status(500).json({ error: 'Payment service not configured' });
+//     }
+
+//     // 2️⃣ Parse request body safely
+//     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+//     const { amount } = body;
+
+//     // 3️⃣ Validate amount
+//     if (!amount || isNaN(amount) || Number(amount) <= 0) {
+//       return res.status(400).json({ error: 'Invalid amount' });
+//     }
+
+//     // 4️⃣ Initialize Razorpay instance
+//     const razorpay = new Razorpay({
+//       key_id: key,
+//       key_secret: secret,
+//     });
+
+//     // 5️⃣ Create order
+//     const order = await razorpay.orders.create({
+//       amount: Math.round(Number(amount) * 100), // Convert rupees to paise
+//       currency: 'INR',
+//       payment_capture: 1, // Auto-capture payment
+//     });
+
+//     console.log('Razorpay order created:', order.id);
+
+//     // 6️⃣ Return order details to frontend
+//     return res.status(200).json({
+//       orderId: order.id,
+//       amount: order.amount,
+//       currency: order.currency,
+//     });
+//   } catch (error) {
+//     console.error('🔥 Order API Error:', error);
+//     return res.status(500).json({
+//       error: error.message || 'Order creation failed',
+//     });
+//   }
+// }
+
+
+
+
+
+
+
 import Razorpay from 'razorpay';
 
-export default async function handler(req, res) {
-  console.log('RAZORPAY_KEY:', process.env.RAZORPAY_KEY);
-  console.log('RAZORPAY_SECRET loaded?', !!process.env.RAZORPAY_SECRET);
-
-  // Allow only POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+export async function handler(event, context) {
+  // Only allow POST requests
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: 'Method not allowed' })
+    };
   }
 
   try {
-    // 1️⃣ Read environment variables
+    // Read environment variables
     const key = process.env.RAZORPAY_KEY;
     const secret = process.env.RAZORPAY_SECRET;
 
     if (!key || !secret) {
       console.error('Missing Razorpay env vars');
-      return res.status(500).json({ error: 'Payment service not configured' });
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Payment service not configured' })
+      };
     }
 
-    // 2️⃣ Parse request body safely
-    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-    const { amount } = body;
+    // Parse request body
+    const { amount } = JSON.parse(event.body);
 
-    // 3️⃣ Validate amount
+    // Validate amount
     if (!amount || isNaN(amount) || Number(amount) <= 0) {
-      return res.status(400).json({ error: 'Invalid amount' });
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Invalid amount' })
+      };
     }
 
-    // 4️⃣ Initialize Razorpay instance
+    // Initialize Razorpay
     const razorpay = new Razorpay({
       key_id: key,
       key_secret: secret,
     });
 
-    // 5️⃣ Create order
+    // Create order
     const order = await razorpay.orders.create({
-      amount: Math.round(Number(amount) * 100), // Convert rupees to paise
+      amount: Math.round(Number(amount) * 100),
       currency: 'INR',
-      payment_capture: 1, // Auto-capture payment
+      payment_capture: 1,
     });
 
     console.log('Razorpay order created:', order.id);
 
-    // 6️⃣ Return order details to frontend
-    return res.status(200).json({
-      orderId: order.id,
-      amount: order.amount,
-      currency: order.currency,
-    });
+    // Return success response
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        orderId: order.id,
+        amount: order.amount,
+        currency: order.currency,
+      })
+    };
   } catch (error) {
-    console.error('🔥 Order API Error:', error);
-    return res.status(500).json({
-      error: error.message || 'Order creation failed',
-    });
+    console.error('Order API Error:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: error.message || 'Order creation failed'
+      })
+    };
   }
 }
