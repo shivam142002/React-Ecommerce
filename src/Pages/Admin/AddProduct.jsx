@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../../Features/Products/ProductsThunk';
 import { selectProductsLoading } from '../../Features/Products/ProductsSlice';
-import Loader from '../../Components/Loader/Loader';
+import Loader from '../../Components/Common/Loader';
 
 function AddProduct() {
   const dispatch = useDispatch();

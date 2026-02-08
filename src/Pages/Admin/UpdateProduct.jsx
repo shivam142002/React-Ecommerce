@@ -7,7 +7,7 @@ import {
   selectProductsLoading,
   setCurrentProduct,
 } from '../../Features/Products/ProductsSlice';
-import Loader from '../../Components/Loader/Loader';
+import Loader from '../../Components/Common/Loader';
 
 function UpdateProduct() {
   const dispatch = useDispatch();

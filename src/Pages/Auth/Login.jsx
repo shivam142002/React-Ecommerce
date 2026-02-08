@@ -7,7 +7,7 @@ import {
     selectAuthLoading,
     selectIsAuthenticated,
 } from '../../Features/Auth/AuthSlice';
-import Loader from '../../Components/Loader/Loader';
+import Loader from '../../Components/Common/Loader';
 
 function Login() {
     const dispatch = useDispatch();

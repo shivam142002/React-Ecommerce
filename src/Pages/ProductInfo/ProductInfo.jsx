@@ -7,7 +7,7 @@ import Layout from '../../Components/Layout/Layout';
 import { useTheme } from '../../Context/ThemeContext';
 import { addToCart } from '../../Features/Cart/CartSlice';
 import { fireDB } from '../../Services/Firebase';
-import Loader from '../../Components/Loader/Loader';
+import Loader from '../../Components/Common/Loader';
 
 function ProductInfo() {
   const { mode } = useTheme();

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import Layout from '../../Components/Layout/Layout';
-import Modal from '../../Components/Modal/Modal';
+import Modal from '../../Components/Common/Modal';
 import { useTheme } from '../../Context/ThemeContext';
 import {
   selectCartItems,

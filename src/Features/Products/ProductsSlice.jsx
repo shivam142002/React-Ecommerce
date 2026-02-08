@@ -21,6 +21,8 @@ const initialState = {
     searchKey: '',
     filterType: '',
     filterPrice: '',
+    currentPage: 1,
+  itemsPerPage: 2,
 };
 
 const productsSlice = createSlice({
@@ -41,21 +43,32 @@ const productsSlice = createSlice({
         },
         setSearchKey: (state, action) => {
             state.searchKey = action.payload;
+             state.currentPage = 1; 
         },
         setFilterType: (state, action) => {
             state.filterType = action.payload;
+             state.currentPage = 1; 
         },
         setFilterPrice: (state, action) => {
             state.filterPrice = action.payload;
+             state.currentPage = 1; 
         },
         resetFilters: (state) => {
             state.searchKey = '';
             state.filterType = '';
             state.filterPrice = '';
+             state.currentPage = 1; 
         },
+
+         setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+    setItemsPerPage: (state, action) => {
+      state.itemsPerPage = action.payload;
+      state.currentPage = 1; 
+    },
     },
     extraReducers: (builder) => {
-        // Fetch Products
         builder
             .addCase(fetchProducts.pending, (state) => {
                 state.loading = true;
@@ -70,7 +83,7 @@ const productsSlice = createSlice({
                 state.error = action.payload;
             });
 
-        // Add Product
+        
         builder
             .addCase(addProduct.pending, (state) => {
                 state.loading = true;
@@ -85,7 +98,7 @@ const productsSlice = createSlice({
                 state.error = action.payload;
             });
 
-        // Update Product
+
         builder
             .addCase(updateProduct.pending, (state) => {
                 state.loading = true;
@@ -103,7 +116,7 @@ const productsSlice = createSlice({
                 state.error = action.payload;
             });
 
-        // Delete Product
+        
         builder
             .addCase(deleteProduct.pending, (state) => {
                 state.loading = true;
@@ -127,9 +140,10 @@ export const {
     setFilterType,
     setFilterPrice,
     resetFilters,
+    setCurrentPage,
+  setItemsPerPage,
 } = productsSlice.actions;
 
-// Selectors
 export const selectAllProducts = (state) => state.products.items;
 export const selectCurrentProduct = (state) => state.products.currentProduct;
 export const selectProductsLoading = (state) => state.products.loading;
@@ -137,8 +151,9 @@ export const selectProductsError = (state) => state.products.error;
 export const selectSearchKey = (state) => state.products.searchKey;
 export const selectFilterType = (state) => state.products.filterType;
 export const selectFilterPrice = (state) => state.products.filterPrice;
+export const selectCurrentPage = (state) => state.products.currentPage;
+export const selectItemsPerPage = (state) => state.products.itemsPerPage;
 
-// Filtered products selector
 export const selectFilteredProducts = (state) => {
     const { items, searchKey, filterType, filterPrice } = state.products;
 
@@ -147,5 +162,29 @@ export const selectFilteredProducts = (state) => {
         .filter((obj) => obj.category.toLowerCase().includes(filterType.toLowerCase()))
         .filter((obj) => obj.price.toString().includes(filterPrice));
 };
+
+export const selectPaginatedProducts = (state) => {
+  const filteredProducts = selectFilteredProducts(state);
+  const { currentPage, itemsPerPage } = state.products;
+  
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  
+  return filteredProducts.slice(startIndex, endIndex);
+};
+
+// Total pages selector
+export const selectTotalPages = (state) => {
+  const filteredProducts = selectFilteredProducts(state);
+  const { itemsPerPage } = state.products;
+  
+  return Math.ceil(filteredProducts.length / itemsPerPage);
+};
+
+// Total items count selector
+export const selectTotalFilteredItems = (state) => {
+  return selectFilteredProducts(state).length;
+};
+
 
 export default productsSlice.reducer;

@@ -64,7 +64,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../Components/Layout/Layout';
-import Loader from '../../Components/Loader/Loader';
+import Loader from '../../Components/Common/Loader';
 import { useTheme } from '../../Context/ThemeContext';
 import { selectUser } from '../../Features/Auth/AuthSlice';
 import {

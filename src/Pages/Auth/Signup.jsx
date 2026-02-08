@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signupUser } from '../../Features/Auth/AuthThunk';
 import { selectAuthLoading } from '../../Features/Auth/AuthSlice';
 //import Loader from '../../components/common/Loader';
-import Loader from '../../Components/Loader/Loader';
+import Loader from '../../Components/Common/Loader';
 
 function Signup() {
     const dispatch = useDispatch();

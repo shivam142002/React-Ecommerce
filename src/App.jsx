@@ -3,15 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-// Context
 import ThemeProvider from './Context/ThemeProvider';
 
-// Routes
 import ProtectedRoute from './Routes/ProtectedRoute';
 import AdminRoute from './Routes/AdminRoute';
 
-// Pages
+
 import Home from './Pages/Home/Home';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import ProductInfo from './Pages/ProductInfo/ProductInfo';
@@ -24,7 +21,6 @@ import AddProduct from './Pages/Admin/AddProduct';
 import UpdateProduct from './Pages/Admin/UpdateProduct';
 //import NoPage from './pages/NotFound/NoPage';
 
-// Redux
 import { checkAuthStatus } from './Features/Auth/AuthSlice';
 import  {loadCartFromStorage}  from './Features/Cart/CartSlice';
 

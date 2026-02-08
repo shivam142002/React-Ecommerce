@@ -11,9 +11,9 @@ function ProductCard({ limit }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const products = useSelector(selectFilteredProducts);
+    const allproducts = useSelector(selectFilteredProducts);
 
-    const displayProducts = limit ? products.slice(0, limit) : products;
+    const displayProducts = limit ? allproducts.slice(0, limit) : allproducts;
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
