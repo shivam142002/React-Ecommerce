@@ -22,7 +22,7 @@ const initialState = {
     filterType: '',
     filterPrice: '',
     currentPage: 1,
-  itemsPerPage: 2,
+  itemsPerPage: 8,
 };
 
 const productsSlice = createSlice({
